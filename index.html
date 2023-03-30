@@ -17,11 +17,11 @@
                 <h1 >TodoList</h1>
                 <h3>Crea e modifica la tua lista</h3>
               <div>
-                    <input type="text" name="ingredient" id="ingredient" v-model="text" @keyup.enter="addItem">
+                    <input type="text" name="ingrediente" id="ingrediente" v-model="text" @keyup.enter="addItem">
                     <button @click="addItem" class="btn btn-success ms-3">Aggiungi</button>
               </div>
               <div>
-                <ul v-if="listSpesa.length > 0 " >
+                <ul v-if="todoList.length > 0 ">
             
             
                     <li v-for="(item, index) in todoList" @click="complete(index)" :class="item.done ? 'text-decoration-line-through': '' ">
