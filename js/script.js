@@ -12,7 +12,8 @@ const { createApp } = Vue;
 createApp({
     data() {
         return {
-           todoList: [{ 
+           todoList: [
+            { 
             text:  'pasta',
             done: false
           },
