@@ -7,44 +7,47 @@ ed un bottone che indica che l'elemento e gia utilizzato
 */
 
 
-const {createApp} = Vue
+const { createApp } = Vue;
 
 createApp({
     data() {
         return {
-           todoList: [
-            { 
-            name:  'pasta',
-            completato: false
+           todoList: [{ 
+            text:  'pasta',
+            done: false
           },
           {
-            name: 'acqua',
-            completato: false
+            text: 'acqua',
+            done: false
           },
           {
-            name:  'uova',
-            completato: false
+            text:  'uova',
+            done: false
           }
-          ],
-          ingrediente:'',
-          testo:'',
-          completato:'',
+        ],
+          text:''
       }
     },
     methods: {
-       inserisci (){
-        const inserisci = {
-            name: this.ingrediente,
-            completato:false
-        }
-         this.todoList.push(inserisci)
-         this.ingrediente = ''
-       },
-       cancella (index) {
+       addItem (){
+            if(this.text != ''){
+                const newItem = {
+                    text : this.text,
+                    done: false,
+                  }
+                  
+                  this.todoList.push(newItem);
+                  this.text = ''
+            } else{
+                this.done = false
+            }
+        },
+
+       deleteItem (index) {
           this.todoList.splice(index, 1)                                                  
        },
-       completa (index){
-           this.todoList[index].completato = true
+       complete (index){
+        this.todoList[index].done = false;
        },
     },
    

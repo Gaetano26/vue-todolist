@@ -13,31 +13,34 @@
 <body>
     <div id="app">
         <div class="wrapper w-100 h-100">
-            <div class="container">
-                <div>
-                    <input type="text" name="ingrediente" id="ingrediente" v-model="ingrediente" @keyup.enter="inserisci">
-                    <button @click="inserisci">Invia</button>
-                </div>
-                <div>
-                    <ul v-if="todoList.length > 0">
+            <div class="container text-center ">
+                <h1 >TodoList</h1>
+                <h3>Crea e modifica la tua lista</h3>
+              <div>
+                    <input type="text" name="ingredient" id="ingredient" v-model="text" @keyup.enter="addItem">
+                    <button @click="addItem" class="btn btn-success ms-3">Aggiungi</button>
+              </div>
+              <div>
+                <ul v-if="listSpesa.length > 0 " >
             
             
-                            <li v-for="(element, index) in todoList" @click="completa(index)" :class="completato && 'alert alert-success'">
-                                <span>{{element.name}}</span>
-                                <button @click="cancella(index)">Cancella</button>
+                    <li v-for="(item, index) in todoList" @click="complete(index)" :class="item.done ? 'text-decoration-line-through': '' ">
             
-                            </li>
-                    </ul>
-                    <h3 v-else>La lista della spesa è vuota</h3>
-                </div>
-             </div>  
-                
-        
+                      
+                        <span>{{item.text}}</span>
+                        <button @click.stop="deleteItem(index)" class="btn btn-outline-danger ms-3 "><i class="fa-thin fa fa-trash"></i></button>
+                      
+                        
                     
-        
-        </div>
+                    </li>
+               </ul>
+            </div>   
             
+               
             
+        </div> 
+                
+                
 
     </div>
 
