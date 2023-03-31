@@ -48,7 +48,7 @@ createApp({
           this.todoList.splice(index, 1)                                                  
        },
        complete (index){
-        this.todoList[index].done = true;
+        this.todoList[index].done = !this.todoList[index].done;
        },
     },
    
